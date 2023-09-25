@@ -1,0 +1,57 @@
+50 Users
+
+ADD 90th Percentile = 46ms
+SUBTRACT 90th Percentile = 16ms 
+DIVIDE 90th Percentile =  35ms
+MULTIPLY 90th Percentile = 16ms
+
+RPS = 16,4
+
+-----------------------------------------------------
+
+200 Users
+
+ADD 90th Percentile = 100ms
+SUBTRACT 90th Percentile = 41ms 
+DIVIDE 90th Percentile =  63ms
+MULTIPLY 90th Percentile = 40ms
+
+RPS = 64,5
+
+-----------------------------------------------------
+
+400 Users with failures
+2:30 min until failure has stopped fully but begins shortly after
+
+-----------------------------------------------------
+
+250 Users with failures of 17%
+
+ADD 90th Percentile = 140ms
+SUBTRACT 90th Percentile = 82ms 
+DIVIDE 90th Percentile =  100ms
+MULTIPLY 90th Percentile = 82ms
+
+RPS =  80,5
+
+-----------------------------------------------------
+
+Last test I ran with 500 Users. Failures started at 420 and then went down a bit at 500 users but then ramped up and thenn started going up and down.
+
+Running 5 users gave me a response time 90th percentile that divide was 26 whilst add was 20 and the rest 8?
+
+-----------------------------------------------------
+
+CPU or Memory did not go above 70%
+
+1. The tasks run simultaneously so it runs both test add1 and add2 at the same time which puts a bigger load on that function?
+But it should not depend on the user amount which should indicate that it is not about the load on the function. 
+Add had double req/s then the others.
+
+2. calculator_rest_service.py is a weird decoder?
+Bottom line of code in calculator.py states this:
+elif (args.rest):
+    calculator_rest_service.main(args)
+
+Meaning that when nothing is "happening" it executes the calculator_rest_service which is malicious and encodes and decodes a big string which makes the program run out of resources.
+

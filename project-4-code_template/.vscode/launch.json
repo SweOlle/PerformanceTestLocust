@@ -1,0 +1,28 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Run locust",
+            "type": "python",
+            "request": "launch",
+            "module": "locust",
+            "args": [
+                "-f",
+                "${file}"
+            ],
+            "console": "integratedTerminal",
+            "gevent": true
+        },
+        {
+            "name": "Run locust single user",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "gevent": true
+        },
+    ]
+}
